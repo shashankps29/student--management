@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import repository.NoticeRepository;
 import repository.StudentRepository;
 import repository.UserRepository;
+import service.StudentService;
 import service.UserService;
 
 import java.time.LocalDate;
@@ -27,6 +28,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/teacher")
 public class TeacherController {
+
+    @Autowired
+    private StudentService studentService;
 
     @Autowired
     private NoticeRepository noticeRepository;
@@ -132,5 +136,57 @@ public class TeacherController {
             return "login";
         }
 
+    }
+
+    @GetMapping("/students")
+    public String getAllStudents(Model model) {
+
+        List<Student> students = studentService.getAllStudents();
+
+        model.addAttribute("students", students);
+
+        return "student-list";
+    }
+
+    @GetMapping("/editStudent/{id}")
+    public String editStudent(@PathVariable("id") Long id, Model model) {
+
+        Student student = studentService.getStudentById(id);
+
+        model.addAttribute("student", student);
+
+        return "editProfileByTeacher";
+    }
+
+    @PostMapping("/updateStudent")
+    public String updateStudent(@ModelAttribute Student formStudent) {
+
+        Student student = studentRepository.findById(formStudent.getId())
+                .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        student.setName(formStudent.getName());
+        student.setEmail(formStudent.getEmail());
+        student.setBranch(formStudent.getBranch());
+        student.setSection(formStudent.getSection());
+        student.setCourse(formStudent.getCourse());
+        student.setContact(formStudent.getContact());
+        student.setGender(formStudent.getGender());
+        student.setAddressLine1(formStudent.getAddressLine1());
+        student.setAddressLine2(formStudent.getAddressLine2());
+        student.setCity(formStudent.getCity());
+        student.setState(formStudent.getState());
+        student.setPincode(formStudent.getPincode());
+        student.setFatherName(formStudent.getFatherName());
+        student.setFatherContact(formStudent.getFatherContact());
+        student.setFatherOccupation(formStudent.getFatherOccupation());
+        student.setMotherName(formStudent.getMotherName());
+        student.setMotherOccupation(formStudent.getMotherOccupation());
+        student.setGuardianName(formStudent.getGuardianName());
+        student.setGuardianContact(formStudent.getGuardianContact());
+        student.setDateOfBirth(formStudent.getDateOfBirth());
+
+        studentRepository.save(student);
+
+        return "redirect:/teacher/students";
     }
 }

@@ -232,7 +232,7 @@ uri="jakarta.tags.core" %>
     </a>
     --%>
 
-    <a href="/teacher/dashboard">
+    <a href="/teacher/students">
 
         <i class="bi bi-people-fill"></i>
         Students
