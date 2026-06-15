@@ -188,17 +188,13 @@
 
     <a href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
 
-    <a href="#"><i class="bi bi-people-fill"></i> Students</a>
+    <a href="/teacher/students"><i class="bi bi-people-fill"></i> Students</a>
 
     <a href="#"><i class="bi bi-person-badge-fill"></i> Teachers</a>
 
     <a href="#"><i class="bi bi-person-x-fill"></i> Blocked Users</a>
 
-    <a href="#"><i class="bi bi-book-fill"></i> Courses</a>
-
-    <a href="#"><i class="bi bi-cash-stack"></i> Fees</a>
-
-    <a href="#"><i class="bi bi-bar-chart-fill"></i> Analytics</a>
+    <a href="#"><i class="bi bi-messenger"></i> Messages </a>
 
     <a href="#"><i class="bi bi-gear-fill"></i> Settings</a>
 
@@ -234,7 +230,7 @@
 
                 <h5>Total Students</h5>
 
-                <h2>1,245</h2>
+                <h2>${totalStudents}</h2>
 
                 <p>Active Students</p>
 
@@ -248,13 +244,15 @@
 
                 <h5>Total Teachers</h5>
 
-                <h2>85</h2>
+                <h2>${totalTeachers}</h2>
 
                 <p>Faculty Members</p>
 
             </div>
 
         </div>
+
+        <%--
 
         <div class="col-md-3">
 
@@ -284,13 +282,15 @@
 
         </div>
 
+        --%>
+
     </div>
 
     <!-- Student Management Table -->
 
     <div class="table-section">
 
-        <h4 class="mb-4">Student Management</h4>
+        <h4 class="mb-4">New Admissions</h4>
 
         <table class="table table-hover">
 
@@ -302,8 +302,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Branch</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th>Date Of Registration </th>
+
 
             </tr>
 
@@ -318,22 +318,6 @@
                 <td>rahul@gmail.com</td>
                 <td>CSE</td>
 
-                <td class="status-active">
-                    Active
-                </td>
-
-                <td>
-
-                    <button class="btn-action block-btn">
-                        Block
-                    </button>
-
-                    <button class="btn-action delete-btn">
-                        Delete
-                    </button>
-
-                </td>
-
             </tr>
 
             <tr>
@@ -342,22 +326,6 @@
                 <td>Aman Verma</td>
                 <td>aman@gmail.com</td>
                 <td>IT</td>
-
-                <td class="status-blocked">
-                    Blocked
-                </td>
-
-                <td>
-
-                    <button class="btn-action unblock-btn">
-                        Unblock
-                    </button>
-
-                    <button class="btn-action delete-btn">
-                        Delete
-                    </button>
-
-                </td>
 
             </tr>
 
@@ -437,28 +405,6 @@
 
 </div>
 
-<!-- Bootstrap JS -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-
-    // Example JS interaction
-
-    const blockButtons =
-        document.querySelectorAll(".block-btn");
-
-    blockButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            alert("User Access Blocked Successfully");
-
-        });
-
-    });
-
-</script>
 
 </body>
 </html>
