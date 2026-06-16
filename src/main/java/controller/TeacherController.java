@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Message;
 import entity.Notice;
 import entity.Student;
 
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.*;
 
+import repository.MessageRepository;
 import repository.NoticeRepository;
 import repository.StudentRepository;
 import repository.UserRepository;
@@ -43,6 +45,9 @@ public class TeacherController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MessageRepository messageRepository;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -188,5 +193,16 @@ public class TeacherController {
         studentRepository.save(student);
 
         return "redirect:/teacher/students";
+    }
+
+    @GetMapping("/getAdminMsg")
+    public String getMsg(Model model) {
+
+        List<Message> messages = messageRepository.findAll();
+        System.out.println("====" + messages);
+
+        model.addAttribute("messages", messages);
+
+        return "adminMessage";
     }
 }

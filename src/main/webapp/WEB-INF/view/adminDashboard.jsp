@@ -382,28 +382,44 @@
 
     </div>
 
-    <!-- Announcement -->
+        <!-- Announcement -->
 
-    <div class="announcement">
+        <div class="announcement">
 
-        <h4>Admin Announcement Panel</h4>
+            <h4>Admin Announcement Panel</h4>
 
-        <p>
-            Send important announcements, exam notices,
-            fee reminders, and placement updates to students and teachers.
-        </p>
+            <p>
+                Send important announcements, exam notices,
+                fee reminders, and placement updates to students and teachers.
+            </p>
 
-        <textarea class="form-control mt-3"
-                  rows="4"
-                  placeholder="Write announcement here..."></textarea>
+           <div class="announcement">
 
-        <button class="btn btn-light mt-3">
-            Send Announcement
-        </button>
+               <h4>Admin Announcement Panel</h4>
+
+               <p>
+                   Send important announcements, exam notices,
+                   fee reminders, and placement updates to students and teachers.
+               </p>
+
+               <form action="/admin/sendMessage" method="post">
+
+                   <textarea
+                       name="message"
+                       class="form-control mt-3"
+                       rows="4"
+                       placeholder="Write announcement here...">
+                   </textarea>
+
+                   <button type="submit" class="btn btn-light mt-3">
+                       Send Announcement
+                   </button>
+
+               </form>
+
+           </div>
 
     </div>
-
-</div>
 
 
 </body>

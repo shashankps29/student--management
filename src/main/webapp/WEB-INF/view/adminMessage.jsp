@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <!-- Bootstrap Icons -->
@@ -127,78 +128,42 @@
             <!-- Message Card -->
             <div class="card border-0 shadow-sm mb-3">
 
-                <div class="card-body">
+              <div class="card-body bg-light" style="max-height:600px; overflow-y:auto;">
 
-                    <div class="d-flex justify-content-between">
+                  <c:forEach var="msg" items="${messages}">
 
-                        <h5 class="text-primary mb-2">
-                            <i class="bi bi-person-workspace"></i>
-                            Admin
-                        </h5>
+                      <div class="card border-0 shadow-sm mb-3">
 
-                        <span class="badge bg-primary">
-                            New
-                        </span>
+                          <div class="card-body">
 
-                    </div>
+                              <div class="d-flex justify-content-between">
 
-                    <p class="mb-2">
-                        Please submit attendance reports before 5 PM today.
-                    </p>
+                                  <h5 class="text-primary mb-2">
+                                      <i class="bi bi-person-workspace"></i>
+                                      Admin
+                                  </h5>
 
-                    <small class="text-muted">
-                        02 Aug 2026 • 10:15 AM
-                    </small>
+                                  <span class="badge bg-primary">
+                                      New
+                                  </span>
 
-                </div>
+                              </div>
 
-            </div>
+                              <p class="mb-2">
+                                  ${msg.message}
+                              </p>
 
-            <!-- Message Card -->
-            <div class="card border-0 shadow-sm mb-3">
+                              <small class="text-muted">
+                                  ${msg.localDateTime}
+                              </small>
 
-                <div class="card-body">
+                          </div>
 
-                    <h5 class="text-primary mb-2">
-                        <i class="bi bi-person-workspace"></i>
-                        Admin
-                    </h5>
+                      </div>
 
-                    <p class="mb-2">
-                        Verify student records before result publication.
-                    </p>
+                  </c:forEach>
 
-                    <small class="text-muted">
-                        01 Aug 2026 • 03:45 PM
-                    </small>
-
-                </div>
-
-            </div>
-
-            <!-- Message Card -->
-            <div class="card border-0 shadow-sm mb-3">
-
-                <div class="card-body">
-
-                    <h5 class="text-primary mb-2">
-                        <i class="bi bi-person-workspace"></i>
-                        Admin
-                    </h5>
-
-                    <p class="mb-2">
-                        Staff meeting scheduled tomorrow at 11:00 AM in Seminar Hall.
-                    </p>
-
-                    <small class="text-muted">
-                        31 Jul 2026 • 06:30 PM
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
+              </div>
 
     </div>
 
