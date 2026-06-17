@@ -198,7 +198,10 @@ public class TeacherController {
     @GetMapping("/getAdminMsg")
     public String getMsg(Model model) {
 
-        List<Message> messages = messageRepository.findAll();
+        List<Message> messages =
+                messageRepository.findTop3ByOrderByIdDesc();;
+
+
         System.out.println("====" + messages);
 
         model.addAttribute("messages", messages);

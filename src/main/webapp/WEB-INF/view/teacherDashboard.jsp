@@ -262,7 +262,7 @@ uri="jakarta.tags.core" %>
 
     </a>
     --%>
-     <a href="/admin/message">
+     <a href="/teacher/getAdminMsg">
 
             <i class="bi bi-clipboard-data"></i>
             Admin Messages
