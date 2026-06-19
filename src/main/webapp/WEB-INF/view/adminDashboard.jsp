@@ -190,7 +190,7 @@
 
     <a href="/teacher/students"><i class="bi bi-people-fill"></i> Students</a>
 
-    <a href="#"><i class="bi bi-person-badge-fill"></i> Teachers</a>
+    <a href="/admin/teacherss"><i class="bi bi-person-badge-fill"></i> Teachers</a>
 
     <a href="#"><i class="bi bi-person-x-fill"></i> Blocked Users</a>
 

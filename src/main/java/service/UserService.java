@@ -3,7 +3,10 @@ package service;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import repository.UserRepository;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -41,5 +44,9 @@ public class UserService {
         user.setEmergencyContact(formUser.getEmergencyContact());
         user.setProfileCompleted(true);
         userRepository.save(user);
+    }
+    public List<User> getAllUsers() {
+
+        return userRepository.findByRoleNot("ADMIN");
     }
 }

@@ -5,6 +5,7 @@ import entity.User;
 import org.springframework.data.jpa.repository
         .JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository
@@ -17,4 +18,6 @@ public interface UserRepository
     User findByEmail(String email);
 
     Optional<Object> findById(Long id);
+
+    List<User> findByRoleNot(String role);
 }
