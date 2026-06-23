@@ -451,12 +451,20 @@
                 margin-top:20px;
             }
         }
+        .dark{
+        background-color:black;
+        color:white;
+        }
+        .light{
+        background-color:white;
+        color:black;
+        }
 
     </style>
 
 </head>
 
-<body>
+<body class="body">
 
 <div class="main-container">
 

@@ -1,8 +1,6 @@
 package controller;
 
 import entity.Message;
-import entity.Notice;
-import entity.Student;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import repository.MessageRepository;
+import repository.StudentRepository;
 import repository.UserRepository;
 import service.UserService;
 
@@ -27,10 +26,47 @@ public class AdminController {
     private MessageRepository messageRepository;
 
     @Autowired
+    private StudentRepository studentRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/dashboard")
+    public String dashboard(Model model){
+        long totalStudents =
+                studentRepository.count();
+        System.out.println("total students" + totalStudents);
+
+        model.addAttribute(
+                "totalStudents",
+                totalStudents
+        );
+        long totalTeachers= userRepository.count();
+        System.out.println("total students" + totalStudents);
+
+        model.addAttribute(
+                "totalTeachers",
+                totalTeachers
+        );
+
+
+        model.addAttribute(
+                "students",
+                studentRepository.findAll()
+        );
+
+
+        model.addAttribute(
+                "users",
+                userRepository.findAll()
+        );
+
+
+        return "adminDashboard";
+    }
 
     @GetMapping("/message")
     public String getMessage(){

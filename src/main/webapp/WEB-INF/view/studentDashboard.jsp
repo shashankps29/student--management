@@ -183,12 +183,20 @@
         .pay-btn{
             background:#059669;
         }
+        .dark{
+            background-color:black;
+            color:white;
+        }
+        .light{
+        background-color:white;
+        color:black;
+        }
 
     </style>
 
 </head>
 
-<body>
+<body class="light">
 
 <!-- Sidebar -->
 
@@ -263,13 +271,14 @@
 
     <!-- Topbar -->
 
+
     <div class="topbar">
 
         <h3>Welcome</h3>
 
-        <button class="btn btn-dark">
-            <i class="bi bi-bell-fill"></i>
-        </button>
+          <button class="btn btn-dark" id="themeToggle">
+                    <i class="bi bi-moon-fill" id="themeIcon"></i>
+                </button>
 
     </div>
 
@@ -524,21 +533,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+let toggleBtn = document.querySelector("#themeToggle");
+let icon = document.querySelector("#themeIcon");
 
-    // Demo JS
+toggleBtn.addEventListener("click", () => {
 
-    const uploadButtons =
-        document.querySelectorAll(".download-btn");
+    if (document.body.classList.contains("light")) {
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
 
-    uploadButtons.forEach(button => {
+        icon.classList.remove("bi-moon-fill");
+        icon.classList.add("bi-sun-fill");
+    } else {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
 
-        button.addEventListener("click", () => {
+        icon.classList.remove("bi-sun-fill");
+        icon.classList.add("bi-moon-fill");
+    }
 
-            alert("Assignment Upload Portal Opened");
-
-        });
-
-    });
+});
 
 </script>
 

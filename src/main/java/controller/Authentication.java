@@ -96,7 +96,7 @@ public class Authentication {
             if (user.getRole()
                     .equalsIgnoreCase("ADMIN")) {
 
-                return "adminDashboard";
+                return "redirect:/admin/dashboard";
             }
             else {
                 return "redirect:/teacher/dashboard";
